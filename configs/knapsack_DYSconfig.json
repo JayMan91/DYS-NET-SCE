@@ -1,0 +1,178 @@
+{
+    "common_params": {
+        "deg": 6,
+        "noise_width": 0.5,
+        "batch_size": 32,
+        "max_epochs": 25,
+        "scheduler": false,
+        "normalize": false,
+        "relax": true,
+        "solve_ratio": 1.0,
+        "num_items": 50,
+        "dim": 2,
+        "capacity": 0.3,
+        "num_data": 1000,
+        "num_feat": 10,
+        "decay_param": 10,
+        "seed": 42
+    },
+    "model_configs": {
+        "DYS-Regret": {
+            "hyperparameters": {
+                "50": {
+                    "dflloss": "regret",
+                    "lr": 0.005,
+                    "tau": 0.0,
+                    "alpha": 0.01,
+                    "numiter": 100
+                },
+                "100": {
+                    "dflloss": "regret",
+                    "lr": 0.005,
+                    "tau": 1.0,
+                    "alpha": 0.01,
+                    "numiter": 100
+                },
+                "200": {
+                    "dflloss": "regret",
+                    "lr": 0.005,
+                    "tau": 0.0,
+                    "alpha": 0.01,
+                    "numiter": 100
+                },
+                "400": {
+                    "dflloss": "regret",
+                    "lr": 0.005,
+                    "tau": 0.0,
+                    "alpha": 0.01,
+                    "numiter": 100
+                },
+                "500": {
+                    "dflloss": "regret",
+                    "lr": 0.005,
+                    "tau": 0.0,
+                    "alpha": 0.01,
+                    "numiter": 100
+                }
+            }
+        },
+
+        "DYS-NCE": {
+            "hyperparameters": {
+                "50": {
+                    "dflloss": "NCEMAP",
+                    "lr": 0.005,
+                    "tau": 0.0,
+                    "alpha": 0.01,
+                    "numiter": 100
+                },
+                "100": {
+                    "dflloss": "NCEMAP",
+                    "lr": 0.005,
+                    "tau": 1.0,
+                    "alpha": 0.01,
+                    "numiter": 100
+                },
+                "200": {
+                    "dflloss": "NCEMAP",
+                    "lr": 0.005,
+                    "tau": 0.0,
+                    "alpha": 0.01,
+                    "numiter": 100
+                },
+                "400": {
+                    "dflloss": "NCEMAP",
+                    "lr": 0.005,
+                    "tau": 0.0,
+                    "alpha": 0.01,
+                    "numiter": 100
+                },
+                "500": {
+                    "dflloss": "NCEMAP",
+                    "lr": 0.005,
+                    "tau": 0.0,
+                    "alpha": 0.01,
+                    "numiter": 100
+                }
+            }
+        },
+        "DYS-SPO": {
+            "hyperparameters": {
+                "50": {
+                    "dflloss": "SPO",
+                    "lr": 0.005,
+                    "tau": 0.0,
+                    "alpha": 0.01,
+                    "numiter": 100
+                },
+                "100": {
+                    "dflloss": "SPO",
+                    "lr": 0.005,
+                    "tau": 1.0,
+                    "alpha": 0.1,
+                    "numiter": 100
+                },
+                "200": {
+                    "dflloss": "SPO",
+                    "lr": 0.005,
+                    "tau": 0.0,
+                    "alpha": 0.01,
+                    "numiter": 100
+                },
+                "400": {
+                    "dflloss": "SPO",
+                    "lr": 0.005,
+                    "tau": 0.0,
+                    "alpha": 0.01,
+                    "numiter": 100
+                },
+                "500": {
+                    "dflloss": "SPO",
+                    "lr": 0.005,
+                    "tau": 0.0,
+                    "alpha": 0.01,
+                    "numiter": 100
+                }
+            }
+        },
+        "DYS-Squared": {
+            "hyperparameters": {
+                "50": {
+                    "dflloss": "Squared",
+                    "lr": 0.005,
+                    "tau": 0.0,
+                    "alpha": 0.01,
+                    "numiter": 100
+                },
+                "100": {
+                    "dflloss": "Squared",
+                    "lr": 0.005,
+                    "tau": 1.0,
+                    "alpha": 0.1,
+                    "numiter": 100
+                },
+                "200": {
+                    "dflloss": "Squared",
+                    "lr": 0.005,
+                    "tau": 0.0,
+                    "alpha": 0.01,
+                    "numiter": 100
+                },
+                "400": {
+                    "dflloss": "Squared",
+                    "lr": 0.005,
+                    "tau": 0.0,
+                    "alpha": 0.01,
+                    "numiter": 100
+                },
+                "500": {
+                    "dflloss": "Squared",
+                    "lr": 0.005,
+                    "tau": 0.0,
+                    "alpha": 0.01,
+                    "numiter": 100
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,174 @@
+{
+    "common_params": {
+        "deg": 6,
+        "noise_width": 0.5,
+        "batch_size": 32,
+        "max_epochs": 25,
+        "scheduler": false,
+        "normalize": false,
+        "grid_size": 5,
+        "num_data": 1000,
+        "num_feat": 10,
+        "decay_param": 10,
+        "seed": 42
+    },
+    "model_configs": {
+        "DYS-Regret": {
+            "hyperparameters": {
+                "5": {
+                    "dflloss": "regret",
+                    "lr": 0.005,
+                    "alpha": 0.01,
+                    "tau": 0.0,
+                    "numiter": 100
+                },
+                "10": {
+                    "dflloss": "regret",
+                    "lr": 0.005,
+                    "alpha": 0.01,
+                    "tau": 1.0,
+                    "numiter": 100
+                },
+                "15": {
+                    "dflloss": "regret",
+                    "lr": 0.005,
+                    "alpha": 0.01,
+                    "tau": 0.0,
+                    "numiter": 100
+                },
+                "20": {
+                    "dflloss": "regret",
+                    "lr": 0.005,
+                     "alpha": 0.01,
+                    "tau": 0.0,
+                    "numiter": 100
+                },
+                "25": {
+                    "dflloss": "regret",
+                    "lr": 0.005,
+                    "alpha": 0.01,
+                    "tau": 0.0,
+                    "numiter": 100
+                }
+            }
+        },
+
+        "DYS-NCE": {
+            "hyperparameters": {
+                "5": {
+                    "dflloss": "NCEMAP",
+                    "lr": 0.005,
+                    "alpha": 0.01,
+                    "tau": 0.0,
+                    "numiter": 100
+                },
+                "10": {
+                    "dflloss": "NCEMAP",
+                    "lr": 0.005,
+                    "alpha": 0.01,
+                    "tau": 1.0,
+                    "numiter": 100
+                },
+                "15": {
+                    "dflloss": "NCEMAP",
+                    "lr": 0.005,
+                    "alpha": 0.01,
+                    "tau": 1.0,
+                    "numiter": 100
+                },
+                "20": {
+                    "dflloss": "NCEMAP",
+                    "lr": 0.005,
+                    "alpha": 0.01,
+                    "tau": 0.0,
+                    "numiter": 100
+                },
+                "25": {
+                    "dflloss": "NCEMAP",
+                    "lr": 0.005,
+                    "alpha": 0.01,
+                    "tau": 0.0,
+                    "numiter": 100
+                }
+            }
+        },
+        "DYS-SPO": {
+            "hyperparameters": {
+                "5": {
+                    "dflloss": "SPO",
+                    "lr": 0.005,
+                    "alpha": 0.01,
+                    "tau":1,
+                    "numiter": 100
+                },
+                "10": {
+                    "dflloss": "SPO",
+                    "lr": 0.005,
+                    "alpha": 0.01,
+                    "tau": 1.0,
+                    "numiter": 100
+                },
+                "15": {
+                    "dflloss": "SPO",
+                    "lr": 0.005,
+                    "alpha": 0.01,
+                    "tau": 0.0,
+                    "numiter": 100
+                },
+                "20": {
+                    "dflloss": "SPO",
+                    "lr": 0.005,
+                    "alpha": 0.01,
+                    "tau": 0.0,
+                    "numiter": 100
+                },
+                "25": {
+                    "dflloss": "SPO",
+                    "lr": 0.005,
+                    "alpha": 0.01,
+                    "tau": 0.0,
+                    "numiter": 100
+                }
+            }
+        },
+        "DYS-Squared": {
+            "hyperparameters": {
+                "5": {
+                    "dflloss": "Squared",
+                    "lr": 0.005,
+                    "alpha": 0.01,
+                    "tau": 0.0,
+                    "numiter": 100
+                },
+                "10": {
+                    "dflloss": "Squared",
+                    "lr": 0.005,
+                    "alpha": 0.01,
+                    "tau": 1.0,
+                    "numiter": 100
+                },
+                "15": {
+                    "dflloss": "Squared",
+                    "lr": 0.005,
+                    "alpha": 0.01,
+                    "tau": 0.0,
+                    "numiter": 100
+                },
+                "20": {
+                    "dflloss": "Squared",
+                    "lr": 0.005,
+                    "alpha": 0.01,
+                    "tau": 0.0,
+                    "numiter": 100
+                },
+                "25": {
+                    "dflloss": "Squared",
+                    "lr": 0.005,
+                    "alpha": 0.01,
+                    "tau": 0.0,
+                    "numiter": 100
+                }
+            }
+        }
+    }
+}

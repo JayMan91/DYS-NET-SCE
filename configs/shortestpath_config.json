@@ -1,0 +1,239 @@
+{
+    "common_params": {
+        "deg": 6,
+        "noise_width": 0.5,
+        "batch_size": 32,
+        "max_epochs": 25,
+        "scheduler": false,
+        "normalize": false,
+        "solve_ratio": 1.0,
+        "grid_size": 5,
+        "num_data": 1000,
+        "num_feat": 10,
+        "seed": 42
+    },
+    "model_configs": {
+        "PFY": {
+            "hyperparameters": {
+                "5": {
+                    "lr": 0.005,
+                    "sigma": 1.0,
+                    "n_samples": 1
+                },
+                "10": {
+                    "lr": 0.005,
+                    "sigma": 1.0,
+                    "n_samples": 1
+                },
+                "15": {
+                    "lr": 0.005,
+                    "sigma": 1.0,
+                    "n_samples": 1
+                },
+                "20": {
+                    "lr": 0.005,
+                    "sigma": 1.0,
+                    "n_samples": 1
+                },
+                "25": {
+                    "lr": 0.005,
+                    "sigma": 1.0,
+                    "n_samples": 1
+                }
+            }
+        },
+        "SPO": {
+            "hyperparameters": {
+                "5": {
+                    "lr": 0.005
+                },
+                "10": {
+                    "lr": 0.005
+                },
+                "15": {
+                    "lr": 0.005
+                },
+                "20": {
+                    "lr": 0.005
+                },
+                "25": {
+                    "lr": 0.005
+                }
+            }
+        },
+        "CAVE": {
+            "hyperparameters": {
+                "5": {
+                    "lr": 0.005
+                },
+                "10": {
+                    "lr": 0.005
+                },
+                "15": {
+                    "lr": 0.005
+                },
+                "20": {
+                    "lr": 0.005
+                },
+                "25": {
+                    "lr": 0.005
+                }
+            }
+        },
+        "PFL": {
+            "hyperparameters": {
+                "5": {
+                    "lr": 0.005
+                },
+                "10": {
+                    "lr": 0.005
+                },
+                "15": {
+                    "lr": 0.005
+                },
+                "20": {
+                    "lr": 0.005
+                },
+                "25": {
+                    "lr": 0.005
+                }
+            }
+        },
+        "NCEMAP": {
+            "hyperparameters": {
+                "5": {
+                    "lr": 0.005
+                },
+                "10": {
+                    "lr": 0.005
+                },
+                "15": {
+                    "lr": 0.005
+                },
+                "20": {
+                    "lr": 0.005
+                },
+                "25": {
+                    "lr": 0.005
+                }
+            }
+        },
+        "CVX-Regret": {
+            "hyperparameters": {
+                "5": {
+                    "dflloss": "regret",
+                    "lr": 0.005,
+                    "tau":1.0
+                },
+                "10": {
+                    "dflloss": "regret",
+                    "lr": 0.005,
+                    "tau": 0.1
+                },
+                "15": {
+                    "dflloss": "regret",
+                    "lr": 0.005,
+                    "tau": 0.1
+                },
+                "20": {
+                    "dflloss": "regret",
+                    "lr": 0.005,
+                    "tau": 0.1
+                },
+                "25": {
+                    "dflloss": "regret",
+                    "lr": 0.005,
+                    "tau": 0.1
+                }
+            }
+        },
+
+        "CVX-NCE": {
+            "hyperparameters": {
+                "5": {
+                    "dflloss": "NCEMAP",
+                    "lr": 0.005,
+                    "tau":1.0
+                },
+                "10": {
+                    "dflloss": "NCEMAP",
+                    "lr": 0.005,
+                    "tau": 0.1
+                },
+                "15": {
+                    "dflloss": "NCEMAP",
+                    "lr": 0.005,
+                    "tau": 0.1
+                },
+                "20": {
+                    "dflloss": "NCEMAP",
+                    "lr": 0.005,
+                    "tau": 0.1
+                },
+                "25": {
+                    "dflloss": "NCEMAP",
+                    "lr": 0.005,
+                    "tau": 0.1
+                }
+            }
+        },
+        "CVX-SPO": {
+            "hyperparameters": {
+                "5": {
+                    "dflloss": "SPO",
+                    "lr": 0.005,
+                    "tau": 0.1
+                },
+                "10": {
+                    "dflloss": "SPO",
+                    "lr": 0.005,
+                    "tau": 0.01
+                },
+                "15": {
+                    "dflloss": "SPO",
+                    "lr": 0.005,
+                    "tau": 0.01
+                },
+                "20": {
+                    "dflloss": "SPO",
+                    "lr": 0.005,
+                    "tau": 0.1
+                },
+                "25": {
+                    "dflloss": "SPO",
+                    "lr": 0.005,
+                    "tau": 0.1
+                }
+            }
+        },
+        "CVX-Squared": {
+            "hyperparameters": {
+                "5": {
+                    "dflloss": "Squared",
+                    "lr": 0.005,
+                    "tau": 1.0
+                },
+                "10": {
+                    "dflloss": "Squared",
+                    "lr": 0.005,
+                    "tau": 0.1
+                },
+                "15": {
+                    "dflloss": "Squared",
+                    "lr": 0.005,
+                    "tau": 0.1
+                },
+                "20": {
+                    "dflloss": "Squared",
+                    "lr": 0.005,
+                    "tau": 0.1
+                },
+                "25": {
+                    "dflloss": "Squared",
+                    "lr": 0.005,
+                    "tau": 0.1
+                }
+            }
+        }
+    }
+}

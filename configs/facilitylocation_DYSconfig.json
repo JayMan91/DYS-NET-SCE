@@ -1,0 +1,147 @@
+{
+    "common_params": {
+        "deg": 6,
+        "noise_width": 0.5,
+        "batch_size": 32,
+        "max_epochs": 25,
+        "scheduler": false,
+        "normalize": false,
+        "relax": false,
+        "solve_ratio": 1.0,
+        "num_data": 1000,
+        "num_feat": 10,
+        "decay_param": 10,
+        "seed": 42
+    },
+    "model_configs": {
+        "DYS-Regret": {
+            "hyperparameters": {
+                "50_5": {
+                    "dflloss": "regret",
+                    "lr": 0.005,
+                    "tau": 0.1,
+                    "alpha": 0.01,
+                    "numiter": 100
+                },
+                "100_10": {
+                    "dflloss": "regret",
+                    "lr": 0.005,
+                    "tau": 0.1,
+                    "alpha": 0.01,
+                    "numiter": 100
+                },
+                "200_10": {
+                    "dflloss": "regret",
+                    "lr": 0.005,
+                    "tau": 0.1,
+                    "alpha": 0.01,
+                    "numiter": 100
+                },
+                "250_10": {
+                    "dflloss": "regret",
+                    "lr": 0.005,
+                    "tau": 0.1,
+                    "alpha": 0.01,
+                    "numiter": 100
+                }
+            }
+        },
+
+        "DYS-NCE": {
+            "hyperparameters": {
+                "50_5": {
+                    "dflloss": "NCEMAP",
+                    "lr": 0.005,
+                    "tau": 0.1,
+                    "alpha": 0.01,
+                    "numiter": 100
+                },
+                "100_10": {
+                    "dflloss": "NCEMAP",
+                    "lr": 0.005,
+                    "tau": 0.1,
+                    "alpha": 0.01,
+                    "numiter": 100
+                },
+                "200_10": {
+                    "dflloss": "NCEMAP",
+                    "lr": 0.005,
+                    "tau": 0.1,
+                    "alpha": 0.01,
+                    "numiter": 100
+                },
+                "250_10": {
+                    "dflloss": "NCEMAP",
+                    "lr": 0.005,
+                    "tau": 0.1,
+                    "alpha": 0.01,
+                    "numiter": 100
+                }
+            }
+        },
+        "DYS-SPO": {
+            "hyperparameters": {
+                "50_5": {
+                    "dflloss": "SPO",
+                    "lr": 0.005,
+                    "tau": 0.1,
+                    "alpha": 0.01,
+                    "numiter": 100
+                },
+                "100_10": {
+                    "dflloss": "SPO",
+                    "lr": 0.005,
+                    "tau": 0.1,
+                    "alpha": 0.01,
+                    "numiter": 100
+                },
+                "200_10": {
+                    "dflloss": "SPO",
+                    "lr": 0.005,
+                    "tau": 0.1,
+                    "alpha": 0.01,
+                    "numiter": 100
+                },
+                "250_10": {
+                    "dflloss": "SPO",
+                    "lr": 0.005,
+                    "tau": 0.1,
+                    "alpha": 0.01,
+                    "numiter": 100
+                }
+            }
+        },
+        "DYS-Squared": {
+            "hyperparameters": {
+                "50_5": {
+                    "dflloss": "Squared",
+                    "lr": 0.005,
+                    "tau": 0.1,
+                    "alpha": 0.01,
+                    "numiter": 100
+                },
+                "100_10": {
+                    "dflloss": "Squared",
+                    "lr": 0.005,
+                    "tau": 0.1,
+                    "alpha": 0.01,
+                    "numiter": 100
+                },
+                "200_10": {
+                    "dflloss": "Squared",
+                    "lr": 0.005,
+                    "tau": 0.1,
+                    "alpha": 0.01,
+                    "numiter": 100
+                },
+                "250_10": {
+                    "dflloss": "Squared",
+                    "lr": 0.005,
+                    "tau": 0.1,
+                    "alpha": 0.01,
+                    "numiter": 100
+                }
+            }
+        }
+    }
+}

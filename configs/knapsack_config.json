@@ -1,0 +1,242 @@
+{
+    "common_params": {
+        "deg": 6,
+        "noise_width": 0.5,
+        "batch_size": 32,
+        "max_epochs": 25,
+        "scheduler": false,
+        "normalize": false,
+        "relax": false,
+        "solve_ratio": 1.0,
+        "num_items": 50,
+        "dim": 2,
+        "capacity": 0.3,
+        "num_data": 1000,
+        "num_feat": 10,
+        "seed": 42
+    },
+    "model_configs": {
+        "PFY": {
+            "hyperparameters": {
+                "50": {
+                    "lr": 0.005,
+                    "sigma": 1.0,
+                    "n_samples": 1
+                },
+                "100": {
+                    "lr": 0.005,
+                    "sigma": 1.0,
+                    "n_samples": 1
+                },
+                "200": {
+                    "lr": 0.005,
+                    "sigma": 1.0,
+                    "n_samples": 1
+                },
+                "400": {
+                    "lr": 0.005,
+                    "sigma": 1.0,
+                    "n_samples": 1
+                },
+                "500": {
+                    "lr": 0.005,
+                    "sigma": 1.0,
+                    "n_samples": 1
+                }
+            }
+        },
+        "SPO": {
+            "hyperparameters": {
+                "50": {
+                    "lr": 0.005
+                },
+                "100": {
+                    "lr": 0.005
+                },
+                "200": {
+                    "lr": 0.005
+                },
+                "400": {
+                    "lr": 0.005
+                },
+                "500": {
+                    "lr": 0.005
+                }
+            }
+        },
+        "CAVE": {
+            "hyperparameters": {
+                "50": {
+                    "lr": 0.005
+                },
+                "100": {
+                    "lr": 0.005
+                },
+                "200": {
+                    "lr": 0.005
+                },
+                "400": {
+                    "lr": 0.005
+                },
+                "500": {
+                    "lr": 0.005
+                }
+            }
+        },
+        "PFL": {
+            "hyperparameters": {
+                "50": {
+                    "lr": 0.005
+                },
+                "100": {
+                    "lr": 0.005
+                },
+                "200": {
+                    "lr": 0.005
+                },
+                "400": {
+                    "lr": 0.005
+                },
+                "500": {
+                    "lr": 0.005
+                }
+            }
+        },
+        "NCEMAP": {
+            "hyperparameters": {
+                "50": {
+                    "lr": 0.005
+                },
+                "100": {
+                    "lr": 0.005
+                },
+                "200": {
+                    "lr": 0.005
+                },
+                "400": {
+                    "lr": 0.005
+                },
+                "500": {
+                    "lr": 0.005
+                }
+            }
+        },
+        "CVX-Regret": {
+            "hyperparameters": {
+                "50": {
+                    "dflloss": "regret",
+                    "lr": 0.005,
+                    "tau":1.0
+                },
+                "100": {
+                    "dflloss": "regret",
+                    "lr": 0.005,
+                    "tau": 1.0
+                },
+                "200": {
+                    "dflloss": "regret",
+                    "lr": 0.005,
+                    "tau": 1.0
+                },
+                "400": {
+                    "dflloss": "regret",
+                    "lr": 0.005,
+                    "tau": 1.0
+                },
+                "500": {
+                    "dflloss": "regret",
+                    "lr": 0.005,
+                    "tau": 1.0
+                }
+            }
+        },
+
+        "CVX-NCE": {
+            "hyperparameters": {
+                "50": {
+                    "dflloss": "NCEMAP",
+                    "lr": 0.005,
+                    "tau":1.0
+                },
+                "100": {
+                    "dflloss": "NCEMAP",
+                    "lr": 0.005,
+                    "tau": 1.0
+                },
+                "200": {
+                    "dflloss": "NCEMAP",
+                    "lr": 0.005,
+                    "tau": 1.0
+                },
+                "400": {
+                    "dflloss": "NCEMAP",
+                    "lr": 0.005,
+                    "tau": 1.0
+                },
+                "500": {
+                    "dflloss": "NCEMAP",
+                    "lr": 0.005,
+                    "tau": 1.0
+                }
+            }
+        },
+        "CVX-SPO": {
+            "hyperparameters": {
+                "50": {
+                    "dflloss": "SPO",
+                    "lr": 0.005,
+                    "tau": 1.0
+                },
+                "100": {
+                    "dflloss": "SPO",
+                    "lr": 0.005,
+                    "tau": 0.01
+                },
+                "200": {
+                    "dflloss": "SPO",
+                    "lr": 0.005,
+                    "tau": 0.1
+                },
+                "400": {
+                    "dflloss": "SPO",
+                    "lr": 0.005,
+                    "tau": 0.1
+                },
+                "500": {
+                    "dflloss": "SPO",
+                    "lr": 0.005,
+                    "tau": 0.1
+                }
+            }
+        },
+        "CVX-Squared": {
+            "hyperparameters": {
+                "50": {
+                    "dflloss": "Squared",
+                    "lr": 0.005,
+                    "tau": 1.0
+                },
+                "100": {
+                    "dflloss": "Squared",
+                    "lr": 0.005,
+                    "tau": 1.0
+                },
+                "200": {
+                    "dflloss": "Squared",
+                    "lr": 0.005,
+                    "tau": 1.0
+                },
+                "400": {
+                    "dflloss": "Squared",
+                    "lr": 0.005,
+                    "tau": 0.1
+                },
+                "500": {
+                    "dflloss": "Squared",
+                    "lr": 0.005,
+                    "tau": 1.0
+                }
+            }
+        }
+    }
+}

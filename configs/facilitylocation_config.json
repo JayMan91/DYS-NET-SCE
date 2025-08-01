@@ -1,0 +1,202 @@
+{
+    "common_params": {
+        "deg": 6,
+        "noise_width": 0.5,
+        "batch_size": 32,
+        "max_epochs": 25,
+        "scheduler": false,
+        "normalize": false,
+        "relax": false,
+        "solve_ratio": 1.0,
+        "num_data": 1000,
+        "num_feat": 10,
+        "seed": 42
+    },
+    "model_configs": {
+        "PFY": {
+            "hyperparameters": {
+                "50_5": {
+                    "lr": 0.005,
+                    "sigma": 1.0,
+                    "n_samples": 1
+                },
+                "100_10": {
+                    "lr": 0.005,
+                    "sigma": 1.0,
+                    "n_samples": 1
+                },
+                "200_10": {
+                    "lr": 0.005,
+                    "sigma": 1.0,
+                    "n_samples": 1
+                },
+                "250_10": {
+                    "lr": 0.005,
+                    "sigma": 1.0,
+                    "n_samples": 1
+                }
+            }
+        },
+        "SPO": {
+            "hyperparameters": {
+                "50_5": {
+                    "lr": 0.005
+                },
+                "100_10": {
+                    "lr": 0.005
+                },
+                "200_10": {
+                    "lr": 0.005
+                },
+                "250_10": {
+                    "lr": 0.005
+                }
+            }
+        },
+        "CAVE": {
+            "hyperparameters": {
+                "50_5": {
+                    "lr": 0.005
+                },
+                "100_10": {
+                    "lr": 0.005
+                },
+                "200_10": {
+                    "lr": 0.005
+                },
+                "250_10": {
+                    "lr": 0.005
+                }
+            }
+        },
+        "PFL": {
+            "hyperparameters": {
+                "50_5": {
+                    "lr": 0.005
+                },
+                "100_10": {
+                    "lr": 0.005
+                },
+                "200_10": {
+                    "lr": 0.005
+                },
+                "250_10": {
+                    "lr": 0.005
+                }
+            }
+        },
+        "NCEMAP": {
+            "hyperparameters": {
+                "50_5": {
+                    "lr": 0.005
+                },
+                "100_10": {
+                    "lr": 0.005
+                },
+                "200_10": {
+                    "lr": 0.005
+                },
+                "250_10": {
+                    "lr": 0.005
+                }
+            }
+        },
+        "CVX-Regret": {
+            "hyperparameters": {
+                "50_5": {
+                    "dflloss": "regret",
+                    "lr": 0.005,
+                    "tau":1.0
+                },
+                "100_10": {
+                    "dflloss": "regret",
+                    "lr": 0.005,
+                    "tau": 10.0
+                },
+                "200_10": {
+                    "dflloss": "regret",
+                    "lr": 0.005,
+                    "tau": 1.0
+                },
+                "250_10": {
+                    "dflloss": "regret",
+                    "lr": 0.005,
+                    "tau": 1.0
+                }
+            }
+        },
+
+        "CVX-NCE": {
+            "hyperparameters": {
+                "50_5": {
+                    "dflloss": "NCEMAP",
+                    "lr": 0.005,
+                    "tau":1.0
+                },
+                "100_10": {
+                    "dflloss": "NCEMAP",
+                    "lr": 0.005,
+                    "tau": 10.0
+                },
+                "200_10": {
+                    "dflloss": "NCEMAP",
+                    "lr": 0.005,
+                    "tau": 1.0
+                },
+                "250_10": {
+                    "dflloss": "NCEMAP",
+                    "lr": 0.005,
+                    "tau": 1.0
+                }
+            }
+        },
+        "CVX-SPO": {
+            "hyperparameters": {
+                "50_5": {
+                    "dflloss": "SPO",
+                    "lr": 0.005,
+                    "tau": 0.1
+                },
+                "100_10": {
+                    "dflloss": "SPO",
+                    "lr": 0.005,
+                    "tau": 10.0
+                },
+                "200_10": {
+                    "dflloss": "SPO",
+                    "lr": 0.005,
+                    "tau": 1.0
+                },
+                "250_10": {
+                    "dflloss": "SPO",
+                    "lr": 0.005,
+                    "tau": 1.0
+                }
+            }
+        },
+        "CVX-Squared": {
+            "hyperparameters": {
+                "50_5": {
+                    "dflloss": "Squared",
+                    "lr": 0.005,
+                    "tau": 1.0
+                },
+                "100_10": {
+                    "dflloss": "Squared",
+                    "lr": 0.005,
+                    "tau": 10.0
+                },
+                "200_10": {
+                    "dflloss": "Squared",
+                    "lr": 0.005,
+                    "tau": 1.0
+                },
+                "250_10": {
+                    "dflloss": "Squared",
+                    "lr": 0.005,
+                    "tau": 1.0
+                }
+            }
+        }
+    }
+}
