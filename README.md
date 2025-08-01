@@ -44,15 +44,7 @@ Important: The experiment scripts read hyperparameter configurations from the `p
 
 If you need to modify hyperparameters such as learning rates, model architectures, or optimization settings, edit these JSON configuration files rather than changing the command-line arguments in the Exp_Run.sh script.
 
-## Implemented Models
 
-This repository implements several models for Decision-Focused Learning:
-
-- **Traditional ML approaches**: MSE, PFY
-- **Decision-focused approaches**: SPO+, CaVE, SCE+
-- **Our proposed approaches**: 
-  - CVX-based: Regret^CVX, SPO+^CVX, SqDE^CVX, SCE^CVX
-  - DYS-based: Regret^DYS, SPO+^DYS, SqDE^DYS, SCE^DYS
 
 ## Citation
 
