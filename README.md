@@ -10,6 +10,24 @@ This repository contains the implementation of our novel approach to Decision-Fo
 
 *Our implementation builds upon [PyEPO](https://github.com/khalil-research/PyEPO), a benchmarking library for End-to-End Predict-then-Optimize techniques.*
 
+## Installation
+
+We recommend using a virtual environment to avoid conflicts with other Python packages:
+
+```bash
+# Create a virtual environment
+python3 -m venv env_dfl
+
+# Activate the virtual environment
+# On Linux/Mac
+source env_dfl/bin/activate
+# On Windows
+# env_dfl\Scripts\activate
+
+# Install dependencies
+pip install -r requirements.txt
+```
+
 ## Instructions for Running Experiments
 
 To run the experiments, execute the Exp_run.sh script from the command line:
