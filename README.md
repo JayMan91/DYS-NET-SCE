@@ -1,5 +1,14 @@
 # Surrogate-Losses-for-Decision-Focused-Learning-using-Differentiable-Optimization
-Code for the ECAi 2025 paper "Minimizing Surrogate Losses for Decision-Focused Learning using Differentiable Optimization"
+
+Code for the ECAI 2025 paper "Minimizing Surrogate Losses for Decision-Focused Learning using Differentiable Optimization"
+
+## Summary
+
+This repository contains the implementation of our novel approach to Decision-Focused Learning (DFL) using differentiable optimization layer [DYS-Net](https://github.com/mines-opt-ml/fpo-dys). We explore various surrogate losses and demonstrate their effectiveness across multiple LP/ILP/MILP optimization problems.
+
+## Acknowledgments
+
+*Our implementation builds upon [PyEPO](https://github.com/khalil-research/PyEPO), a benchmarking library for End-to-End Predict-then-Optimize techniques.*
 
 ## Instructions for Running Experiments
 
@@ -25,17 +34,6 @@ To run experiments with different configurations, you can modify the parameter v
 2. For Knapsack experiments, modify the `--num_items` parameter (e.g., change from 400 to another value)
 3. For Facility Location experiments, modify the `--num_customers` parameter (e.g., change from 200 to another value) and `--num_facilities` if needed
 
-Example of modifying grid size in the Exp_Run.sh file:
-```bash
-# Change this line
-python3 ShortestPathExpBaseline.py --model_name SPO --grid_size 15 --seed $s
-
-# To this for a different grid size
-python3 ShortestPathExpBaseline.py --model_name SPO --grid_size 20 --seed $s
-```
-
-You can also add additional parameter configurations by duplicating and modifying the existing command lines.
-
 ## Hyperparameter Configurations
 
 Important: The experiment scripts read hyperparameter configurations from the `pkg/configs` folder. These configuration files include:
@@ -43,10 +41,27 @@ Important: The experiment scripts read hyperparameter configurations from the `p
 - `shortestpath_config.json` and `shortestpath_DYSconfig.json`: For Shortest Path experiments
 - `knapsack_config.json` and `knapsack_DYSconfig.json`: For Knapsack experiments
 - `facilitylocation_config.json` and `facilitylocation_DYSconfig.json`: For Facility Location experiments
-- `ESP_config.json` and `ESP_DYSconfig.json`: For ESP experiments
 
 If you need to modify hyperparameters such as learning rates, model architectures, or optimization settings, edit these JSON configuration files rather than changing the command-line arguments in the Exp_Run.sh script.
 
-Each experiment script will generate results that will be saved in the appropriate directories for later analysis and visualization.
+## Implemented Models
 
-Note: The experiments may take a significant amount of time to complete depending on the parameters and dataset sizes.
+This repository implements several models for Decision-Focused Learning:
+
+- **Traditional ML approaches**: MSE, PFY
+- **Decision-focused approaches**: SPO+, CaVE, SCE+
+- **Our proposed approaches**: 
+  - CVX-based: Regret^CVX, SPO+^CVX, SqDE^CVX, SCE^CVX
+  - DYS-based: Regret^DYS, SPO+^DYS, SqDE^DYS, SCE^DYS
+
+## Citation
+
+If you use this code in your research, please cite our paper:
+
+```bibtex
+@inproceedings{surrogate-losses-dfl-2025,
+  title={Minimizing Surrogate Losses for Decision-Focused Learning using Differentiable Optimization},
+  author={[Author Names]},
+  booktitle={Proceedings of the European Conference on Artificial Intelligence (ECAI)},
+  year={2025}
+}
