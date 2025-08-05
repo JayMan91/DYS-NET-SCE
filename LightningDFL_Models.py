@@ -139,98 +139,6 @@ class SPO(PFL):
         return training_loss
 
 
-class DYS_Active(PFL):
-    def __init__(self, net,  optmodel, AbCD_provided= None, method_name='dys_active', inv_provided= False, normalize=False, 
-                dflloss = 'regret', alpha = 0.05, tau = 1., cost_transform = None, sol_transform = None,
-                num_iter = 100, decay_param = 10,  dopresolve=False,  lr=1e-2, max_epochs=30,  
-                scheduler=False, seed=42, processes=1, **kwd):
-        """
-        A class to implement DYS
-        Args:
-            net: the underlying predictive model
-            
-        """
-        super().__init__(net,  optmodel, method_name,  lr, max_epochs,  scheduler, seed)
-        # self.dysopt = pyepo.func.DYSOpt(optmodel, AbCD_provided=  AbCD_provided, num_iter = num_iter, alpha = alpha, tau = tau, decay_param = decay_param , dopresolve = dopresolve,
-        #                                 cost_transform = cost_transform, sol_transform = sol_transform)
-        self.dys_layer = pyepo.func.DYSOpt_OTF(num_iter = num_iter, alpha = alpha, tau = tau,
-                         decay_param = decay_param, processes = processes, inv_provided= inv_provided)
-        #pyepo.func.DYS_OTF(num_iter = 50, alpha = 0.05, tau = 1., decay_param = 10)
-        self.save_hyperparameters('num_iter','alpha' , 'tau','decay_param', 'lr','max_epochs', 'inv_provided' ,
-                                  'dflloss' , 'normalize', 'scheduler', 'seed')
-
-    def training_step(self, batch, batch_idx):  
-
-        dflloss = self.hparams.dflloss
-
-
-        self.net.train()      
-        # x, c, w, z, As, Ainvs = batch
-        
-        x = batch[0]
-        c = batch[1]
-        w = batch[2]
-        Aeqs = batch[4]
-        if self.hparams.inv_provided:
-            Aeqs_inv = batch[5]
-
-        # print ('Shape of A-eq', Aeqs.shape)
-
-        batch_size, n_cons, _ = Aeqs.size()
-        # As = torch.cat ( (Aeqs, torch.eye(n_cons)), dim=1) 
-
-        batch_size, n_var = c.size()
-        # batch_size, n_cons, _ = As.size()
-        cp =  self(x)
-        device = cp.device
-
-        if self.hparams.normalize:
-            cp = F.normalize(cp, p=1,dim = 1)
-            c = F.normalize(c, p=1,dim = 1)
-        # Aeqs = As[:,:,  :n_var]
-        bs = torch.einsum("brc,bc->br",Aeqs, w.float())
-        
-        # wp =  torch.zeros_like(w).float()
-        if dflloss=="SPO":
-            c_input = (2*cp -c)
-        else:
-            c_input = cp
-        if self.optmodel.modelSense == EPO.MAXIMIZE:
-                c_input = -1*c_input 
-        
-        c_input = torch.cat ([ c_input, torch.zeros(batch_size, n_cons) ], -1)
-
-        if self.hparams.inv_provided:
-             wp = self.dys_layer  (c_input, Aeqs,  bs, Aeqs_inv)
-        else:
-            wp = self.dys_layer  (c_input, Aeqs,  bs)
-        wp = wp [:, :n_var]
-
-        # print ("Solution", w[0])
-        # print ("Prediocted Solution", wp[0])
-        
-        if dflloss=="regret":
-            training_loss  = torch.einsum("bd,bd->b", c, wp).mean() #C1
-        elif dflloss=="SCE":
-            training_loss  = torch.einsum("bd,bd->b", cp, w-wp).mean() #C2
-        elif dflloss=="SPO":
-            training_loss  = torch.einsum("bd,bd->b", 2*cp  - c, w-wp).mean() #C3
-        elif dflloss=="NCEMAP":
-            training_loss  = torch.einsum("bd,bd->b", cp -c, w-wp).mean() #C2
-
-        elif dflloss=="Squared":
-            training_loss  =  ( (w - wp)**2  ).mean() #C2
-        else:
-            raise NotImplementedError
-
-        if self.optmodel.modelSense == EPO.MAXIMIZE:
-            if dflloss!="Squared":
-                training_loss  = -1 * training_loss
-        self.log('train_loss', training_loss, prog_bar=False, on_epoch=True, on_step=False)
-        return training_loss.mean()
-
-
-
 
 # net,  optmodel, method_name,  lr, max_epochs,  scheduler, seed
 class DBB(PFL):
@@ -316,7 +224,7 @@ class CVX(PFL):
             elif dflloss=="SPO":
                 wp = self.cvxopt(2*cp  - c)
                 training_loss  = torch.einsum("bd,bd->b", 2*cp  - c, w-wp).mean() #C3
-            elif dflloss=="NCEMAP":
+            elif dflloss=="SCE":
                 wp = self.cvxopt(cp)
                 training_loss  = torch.einsum("bd,bd->b", cp -c, w-wp).mean() #C2
 
@@ -338,7 +246,7 @@ class CVX(PFL):
             elif dflloss=="SPO":
                 transformed_wp = self.cvxopt(2*cp  - c)
                 training_loss  = torch.einsum("bd,bd->b", 2*transformed_cp  - transformed_c, transformed_w-transformed_wp).mean() #C3
-            elif dflloss=="NCEMAP":
+            elif dflloss=="SCE":
                 transformed_wp = self.cvxopt(cp)
                 training_loss  = torch.einsum("bd,bd->b", transformed_cp -transformed_c, transformed_w-transformed_wp).mean() #C2
                 # print (transformed_c.shape, transformed_w.shape, c.shape)
@@ -409,7 +317,7 @@ class DYS(PFL):
             elif dflloss=="SPO":
                 wp = self.dysopt(2*cp  - c)
                 training_loss  = torch.einsum("bd,bd->b", 2*cp  - c, w-wp).mean() #C3
-            elif dflloss=="NCEMAP":
+            elif dflloss=="SCE":
                 wp = self.dysopt(cp)
                 training_loss  = torch.einsum("bd,bd->b", cp -c, w-wp).mean() #C2
             elif dflloss=="Squared":
@@ -426,7 +334,7 @@ class DYS(PFL):
             elif dflloss=="SPO":
                 transformed_wp = self.dysopt(2*cp  - c)
                 training_loss  = torch.einsum("bd,bd->b", 2*transformed_cp  - transformed_c, transformed_w-transformed_wp).mean() #C3
-            elif dflloss=="NCEMAP":
+            elif dflloss=="SCE":
                 transformed_wp = self.dysopt(cp)
                 training_loss  = torch.einsum("bd,bd->b", transformed_cp -transformed_c, transformed_w-transformed_wp).mean() #C2
 
@@ -520,8 +428,6 @@ class PFY(PFL):
 
 
 class NCEMAP(PFL):
-    ### In pyepo, it's named different
-
     def __init__(self, net,  optmodel, optmodel_train =None, method_name='cmap', normalize=False,  lr=1e-2, max_epochs=30, 
                   scheduler=False, seed=42, dataset=None, solve_ratio=1., processes = 1, **kwd):
         """
@@ -552,7 +458,7 @@ class NCEMAP(PFL):
         self.log('train_loss', training_loss, prog_bar=False, on_epoch=True, on_step=False)
         return training_loss.mean()
 
-class NCEMAP_Linear(NCEMAP):
+class SCE(NCEMAP):
     def __init__(self, net,  optmodel, optmodel_train = None, method_name='cmap', normalize=False,   lr=1e-2, max_epochs=30,
                    scheduler=False, seed=42, dataset=None, solve_ratio=1., processes = 1, **kwd):
         """
@@ -561,9 +467,13 @@ class NCEMAP_Linear(NCEMAP):
             net: the underlying predictive model
             
         """
-        super().__init__(net,  optmodel, optmodel_train , method_name, normalize,  lr, max_epochs,  scheduler, seed, 
-                    dataset , solve_ratio, processes = processes, **kwd)
-        self.sce_func = pyepo.func.contrastiveMAP_linear(optmodel_train,  solve_ratio=  solve_ratio,  dataset=dataset, processes = processes)
+        if optmodel_train is None:
+            optmodel_train = optmodel
+        
+        super().__init__(net,  optmodel, optmodel_train, method_name, normalize,  lr, max_epochs,  scheduler, seed, 
+                    dataset, solve_ratio, processes = processes, **kwd)
+        
+        self.sce_func = pyepo.func.contrastiveMAP_linear(optmodel_train, solve_ratio=solve_ratio, dataset=dataset, processes=processes)
 
 
 class CAVE(PFL):

@@ -59,7 +59,7 @@ def get_model_config(config, model_name, grid_size):
 
 parser = argparse.ArgumentParser()
 parser.add_argument("--config", type=str, help="path to config file", default="configs/shortestpath_config.json")
-parser.add_argument("--model_name", type=str, required=True, help="name of models (e.g., SPO, NCEMAP, PFL)")
+parser.add_argument("--model_name", type=str, required=True, help="name of models (e.g., SPO, SCE, PFL)")
 parser.add_argument("--grid_size", type=int, help="Size of the Grid", default=5)
 
 # Optional arguments to override config values
@@ -131,7 +131,7 @@ loader_test = DataLoader(dataset_test, batch_size=batch_size, shuffle=False, num
 
 
 import pytorch_lightning as pl
-from LightningDFL_Models import  SPO, PFL, CAVE,  DBB, PFY,  NCEMAP, NCEMAP_Linear, CVX
+from LightningDFL_Models import  SPO, PFL, CAVE,  PFY,  SCE, CVX
 from MLmodels import LinearRegression
 
 log_dir = os.getcwd() + "/ResultECAI/ShortestPathResults/"
@@ -149,12 +149,12 @@ if modelname=='SPO':
                 seed=seed, optmodel= optmodel, normalize=normalize, 
                 solve_ratio=solve_ratio, dataset=dataset_train)
 
-if modelname=='NCEMAP':
+if modelname=='SCE':
     solve_ratio = config['solve_ratio']
-    logger = CSVLogger(log_dir, name='relaxncemap_normalize{}_deg{}_noise{}_gridsize{}'.format(normalize, 
+    logger = CSVLogger(log_dir, name='relaxSCE_normalize{}_deg{}_noise{}_gridsize{}'.format(normalize, 
             deg, noise_width, grid_size))
 
-    model = NCEMAP_Linear(net= reg,lr=lr, scheduler=scheduler, seed=seed, optmodel= optmodel, max_epochs=max_epochs,
+    model = SCE(net= reg,lr=lr, scheduler=scheduler, seed=seed, optmodel= optmodel, max_epochs=max_epochs,
             normalize=normalize, solve_ratio=solve_ratio, dataset=dataset_train)
 
 if modelname=='PFL':

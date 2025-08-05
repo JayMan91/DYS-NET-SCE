@@ -124,7 +124,7 @@ loader_train = DataLoader(dataset_train, batch_size=batch_size, shuffle=True, nu
 loader_val  = DataLoader(dataset_val, batch_size=batch_size, shuffle=False, num_workers=19)
 loader_test = DataLoader(dataset_test, batch_size=batch_size, shuffle=False, num_workers=19)
 import pytorch_lightning as pl
-from LightningDFL_Models import  SPO, PFL, CAVE,  DBB, PFY,  NCEMAP, NCEMAP_Linear, CVX
+from LightningDFL_Models import  SPO, PFL, CAVE,  DBB, PFY,  SCE, CVX
 from MLmodels import LinearRegression
 
 log_dir = os.getcwd() + "/ResultECAI/FacilityLocationResults/"
@@ -144,13 +144,13 @@ if modelname=='SPO':
                 normalize=normalize, 
                 solve_ratio=solve_ratio, dataset=dataset_train)
 
-if modelname=='NCEMAP':
+if modelname=='SCE':
     solve_ratio = config['solve_ratio']
-    name = f'ncemap_normalize{normalize}_deg{deg}_noise{noise_width}_customers{num_customers}_facilities{num_facilities}'
+    name = f'SCE_normalize{normalize}_deg{deg}_noise{noise_width}_customers{num_customers}_facilities{num_facilities}'
     if relax:
         name = 'relax' + name
     logger = CSVLogger(log_dir, name=name)
-    model = NCEMAP_Linear(net=reg, lr=lr, scheduler=scheduler, seed=seed,
+    model = SCE(net=reg, lr=lr, scheduler=scheduler, seed=seed,
                          optmodel= optmodel, optmodel_train= optmodel_train ,
                          normalize=normalize, solve_ratio=solve_ratio,
                          max_epochs=max_epochs, dataset=dataset_train)

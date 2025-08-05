@@ -85,7 +85,7 @@
                 }
             }
         },
-        "NCEMAP": {
+        "SCE": {
             "hyperparameters": {
                 "50_5": {
                     "lr": 0.005
@@ -126,25 +126,25 @@
             }
         },
 
-        "CVX-NCE": {
+        "CVX-SCE": {
             "hyperparameters": {
                 "50_5": {
-                    "dflloss": "NCEMAP",
+                    "dflloss": "SCE",
                     "lr": 0.005,
                     "tau":1.0
                 },
                 "100_10": {
-                    "dflloss": "NCEMAP",
+                    "dflloss": "SCE",
                     "lr": 0.005,
                     "tau": 10.0
                 },
                 "200_10": {
-                    "dflloss": "NCEMAP",
+                    "dflloss": "SCE",
                     "lr": 0.005,
                     "tau": 1.0
                 },
                 "250_10": {
-                    "dflloss": "NCEMAP",
+                    "dflloss": "SCE",
                     "lr": 0.005,
                     "tau": 1.0
                 }

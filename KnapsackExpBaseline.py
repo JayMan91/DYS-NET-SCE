@@ -124,7 +124,7 @@ from torch import nn
 # build linear model
 
 import pytorch_lightning as pl
-from LightningDFL_Models import  SPO, PFL, CAVE, DBB, CVX, PFY, NCEMAP, NCEMAP_Linear
+from LightningDFL_Models import  SPO, PFL, CAVE, DBB, CVX, PFY,  SCE
 from MLmodels import LinearRegression
 # log_dir = os.getcwd() +  "/KnapsackResults/"
 log_dir = os.getcwd() + "/ResultECAI/KnapsackResults/"
@@ -142,14 +142,14 @@ if modelname=='SPO':
                 normalize=normalize, max_epochs=max_epochs,
             solve_ratio=solve_ratio, dataset=dataset_train)
 
-if modelname=='NCEMAP':
+if modelname=='SCE':
     solve_ratio = config['solve_ratio']
     
-    name = 'ncemap_normalize{}_deg{}_noise{}_numitems{}'.format(normalize, deg, noise_width, num_items)
+    name = 'SCE_normalize{}_deg{}_noise{}_numitems{}'.format(normalize, deg, noise_width, num_items)
     if relax:
         name = 'relax'+name
     logger = CSVLogger(log_dir, name= name)
-    model = NCEMAP_Linear(net= reg,lr=lr, scheduler=scheduler, seed=seed, 
+    model = SCE(net= reg,lr=lr, scheduler=scheduler, seed=seed, 
                           optmodel= optmodel, optmodel_train= optmodel_train , 
                           normalize=normalize, max_epochs=max_epochs,
         solve_ratio=solve_ratio, dataset=dataset_train)

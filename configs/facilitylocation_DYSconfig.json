@@ -47,31 +47,31 @@
             }
         },
 
-        "DYS-NCE": {
+        "DYS-SCE": {
             "hyperparameters": {
                 "50_5": {
-                    "dflloss": "NCEMAP",
+                    "dflloss": "SCE",
                     "lr": 0.005,
                     "tau": 0.1,
                     "alpha": 0.01,
                     "numiter": 100
                 },
                 "100_10": {
-                    "dflloss": "NCEMAP",
+                    "dflloss": "SCE",
                     "lr": 0.005,
                     "tau": 0.1,
                     "alpha": 0.01,
                     "numiter": 100
                 },
                 "200_10": {
-                    "dflloss": "NCEMAP",
+                    "dflloss": "SCE",
                     "lr": 0.005,
                     "tau": 0.1,
                     "alpha": 0.01,
                     "numiter": 100
                 },
                 "250_10": {
-                    "dflloss": "NCEMAP",
+                    "dflloss": "SCE",
                     "lr": 0.005,
                     "tau": 0.1,
                     "alpha": 0.01,
