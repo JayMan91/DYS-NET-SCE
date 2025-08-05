@@ -43,7 +43,21 @@ chmod +x Exp_run.sh
 ```
 
 The Exp_run.sh script will execute all the necessary experiment scripts in the correct order, running various models with different parameters.
+### Model Name in Exp_run.sh
 
+Here's how the math notation in our paper translates to actual model names in the code:
+
+- CVX Models
+   - $Regret^{CVX}$ corresponds to `CVX-Regret`
+   - $SqDE^{CVX}$ corresponds to `CVX-Squared`
+   - $SPO_{+}^{CVX}$ corresponds to `CVX-SPO`
+   - $SCE^{CVX}$ corresponds to `CVX-SCE`
+
+- DYS-Net Models
+   - $Regret^{DYS}$ corresponds to `DYS-Regret`
+   - $SqDE^{DYS}$ corresponds to `DYS-Squared`
+   - $SPO_{+}^{DYS}$ corresponds to `DYS-SPO`
+   - $SCE^{DYS}$ corresponds to `DYS-SCE`
 ## Modifying Configuration Parameters
 
 To run experiments with different configurations, you can modify the parameter values directly in the Exp_Run.sh file:
@@ -62,21 +76,7 @@ Important: The experiment scripts read hyperparameter configurations from the `p
 
 If you need to modify hyperparameters such as learning rates, model architectures, or optimization settings, edit these JSON configuration files rather than changing the command-line arguments in the Exp_Run.sh script.
 
-## Model Name Mapping
 
-Here's how the math notation in our paper translates to actual model names in the code:
-
-### CVX-based Models
-- $Regret^{CVX}$ corresponds to `CVX-Regret`
-- $SqDE^{CVX}$ corresponds to `CVX-Squared`
-- $SPO_{+}^{CVX}$ corresponds to `CVX-SPO`
-- $SCE^{CVX}$ corresponds to `CVX-SCE`
-
-### DYS-based Models
-- $Regret^{DYS}$ corresponds to `DYS-Regret`
-- $SqDE^{DYS}$ corresponds to `DYS-Squared`
-- $SPO_{+}^{DYS}$ corresponds to `DYS-SPO`
-- $SCE^{DYS}$ corresponds to `DYS-SCE`
 
 ## Citation
 
