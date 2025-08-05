@@ -5,10 +5,18 @@ Code for the ECAI 2025 paper "Minimizing Surrogate Losses for Decision-Focused L
 ## Summary
 
 This repository contains the implementation of our novel approach to Decision-Focused Learning (DFL) using differentiable optimization layer [DYS-Net](https://github.com/mines-opt-ml/fpo-dys). We explore various surrogate losses and demonstrate their effectiveness across multiple LP/ILP/MILP optimization problems.
+## Citation
 
-## Acknowledgments
+If you use this code in your research, please cite our paper:
 
-*Our implementation builds upon [PyEPO](https://github.com/khalil-research/PyEPO), a benchmarking library for End-to-End Predict-then-Optimize techniques.*
+```bibtex
+@inproceedings{surrogate-losses-dfl-2025,
+  title={Minimizing Surrogate Losses for Decision-Focused Learning using Differentiable Optimization},
+  author={[Author Names]},
+  booktitle={Proceedings of the European Conference on Artificial Intelligence (ECAI)},
+  year={2025}
+}
+
 
 ## Installation
 
@@ -77,15 +85,7 @@ Important: The experiment scripts read hyperparameter configurations from the `p
 If you need to modify hyperparameters such as learning rates, model architectures, or optimization settings, edit these JSON configuration files rather than changing the command-line arguments in the Exp_Run.sh script.
 
 
+## Acknowledgments
 
-## Citation
+*Our implementation builds upon [PyEPO](https://github.com/khalil-research/PyEPO), a benchmarking library for End-to-End Predict-then-Optimize techniques.*
 
-If you use this code in your research, please cite our paper:
-
-```bibtex
-@inproceedings{surrogate-losses-dfl-2025,
-  title={Minimizing Surrogate Losses for Decision-Focused Learning using Differentiable Optimization},
-  author={[Author Names]},
-  booktitle={Proceedings of the European Conference on Artificial Intelligence (ECAI)},
-  year={2025}
-}
