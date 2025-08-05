@@ -16,7 +16,7 @@ If you use this code in your research, please cite our paper:
   booktitle={Proceedings of the European Conference on Artificial Intelligence (ECAI)},
   year={2025}
 }
-
+```
 
 ## Installation
 
