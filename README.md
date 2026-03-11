@@ -7,17 +7,24 @@ Code for the ECAI 2025 paper "Minimizing Surrogate Losses for Decision-Focused L
 This repository contains the implementation of our novel approach to Decision-Focused Learning (DFL) using differentiable optimization layer [DYS-Net](https://github.com/mines-opt-ml/fpo-dys). We explore various surrogate losses and demonstrate their effectiveness across multiple LP/ILP/MILP optimization problems.
 ## Citation
 
-If you use this code in your research, please cite our paper (will update after the proceeding is publicly available):
+If you use this code in your research, please cite our paper:
 
 ```bibtex
-@misc{mandi2025minimizingsurrogatelossesdecisionfocused,
-      title={Minimizing Surrogate Losses for Decision-Focused Learning using Differentiable Optimization}, 
-      author={Jayanta Mandi and Ali İrfan Mahmutoğulları and Senne Berden and Tias Guns},
-      year={2025},
-      eprint={2508.11365},
-      archivePrefix={arXiv},
-      primaryClass={cs.LG},
-      url={https://arxiv.org/abs/2508.11365}, 
+@inproceedings{ecai25/MandiMBG25,
+author       = {Jayanta Mandi and
+                  Ali Irfan Mahmutogullari and
+                  Senne Berden and
+                  Tias Guns},
+  title        = {Minimizing Surrogate Losses for Decision-Focused Learning Using Differentiable
+                  Optimization},
+  booktitle    = {{ECAI} 2025 - 28th European Conference on Artificial Intelligence,
+                  25-30 October 2025, Bologna, Italy - Including 14th Conference on
+                  Prestigious Applications of Intelligent Systems {(PAIS} 2025)},
+  series       = {Frontiers in Artificial Intelligence and Applications},
+  volume       = {413},
+  pages        = {3888--3895},
+  publisher    = {{IOS} Press},
+  year         = {2025}
 }
 ```
 
